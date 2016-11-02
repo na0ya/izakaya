@@ -6,7 +6,7 @@
 
 ### Contributing
 
-1. Fork this repository
+1. Join this repository and clone it.
 2. ``npm install``
 3. Create your feature branch from **development** branch (``git checkout develpment && git checkout -b your-branch``)
 4. Create a **.env** file in your root directory, and add following key.
