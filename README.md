@@ -10,8 +10,8 @@
 
 
 # Contribution Guide
-See [/CONTRIBUTION.md](CONTRIBUTION.md)
+See [CONTRIBUTION.md](CONTRIBUTION.md)
 
 # License
-See [/LICENSE](LICENSE)
+See [LICENSE](LICENSE)
 
