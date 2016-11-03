@@ -1,6 +1,17 @@
 language: node_js
 node_js:
-- node
+  - node
+
+deploy:
+  provider: heroku
+  api_key:
+    secure: F4qiyroB0rYl/4Q7PIJp0aQMklfmLtA0vN1jRUvinDIzu6cv0ig0sx473Nmo3z7/DOGvyv5gwTq47CPHMU6rM4ysVDjMBnGoZ4J+jwWGKzwbDuyjYSflSV+rfv/DTIydPpWYwaYWI4rPb9z5zZydMLSr0LzbiUwVAA/izf072h1lLv60suKVK38spDdHu+lPkTZNfXwL/3IhaL7fGIsEisuAmASj2t6XYR3YXIYjAcFJtBcBRIHSpuJsTg/43UG4ZXDBWJ7GC/sgX54OH8l8jY+xA783TQx8wesXbc/LyhD1/f3fY8jTweMtbTHM/fpHOQ6QDP8E1qFqW6oXpfhqzLHEr3a+WNpDXAL583jzwdlY7Na4ba/W4pOseo20GtSy5YvWhME1Qz5qabX6IEPvoKAAgBXQKHL1eKrtnZ+mrrDFy/Tov5qd3LMSAvKiOggrzJOMaguKj6rNn3X7A5AX/f2wCxfT3QVFCVfDmnxwA5l4ceuYvGwOLmiFxNERRDYISZFPP4kkFhyCqVp0r8taIX86Bm0aMo7SUMjBih1MMg3SupfmpuBQD/BtlnzRrrxIBg4JtLOFXYGrzX5RINQAhGrVWCxxck4N9/DBqChqCbSQo79/vWfgJ6MW80LaYxfuUpYCWCup48lhXNw1NQCAU4m2xoflBdz2vBGuZaSvJQQ=
+  app:
+    master: izakaya-release
+    development: izakaya-staging
+  run:
+    - "npm start"
+
 notifications:
   slack:
     rooms:
