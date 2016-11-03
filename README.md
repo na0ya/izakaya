@@ -10,7 +10,7 @@
 
 
 # Contribution Guide
-See [CONTRIBUTION.md](CONTRIBUTION.md)
+See [CONTRIBUTING.md](CONTRIBUTING.md)
 
 # License
 See [LICENSE](LICENSE)
