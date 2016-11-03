@@ -1,8 +1,7 @@
 language: node_js
 node_js:
-  - "node"
-
+- node
 notifications:
-  slack: tgifhq:SgGGnVYdfHKGSBOKkuXxuhut
-
-
+  slack:
+    rooms:
+      secure: nmRoHenM1CRQQ0/ZV4jX3Zv9k8enw9X/oBP2Ux/WOSgSm6RuY+c1j30/yxtA67r142Ql/uPhRDCZ6yl+MExPG+evwjJJv/bQyOdCvL+or51AOLBDllvB0dbFfD3b6R1m+AoJOuxIUQRfrsMVpiZIoWxrIzauM+0egFRUAcY5vaIbbNrA+U7ucngD33+XhMLSMLIb8/2EQOeKcyXBdMBARzcMhg2EvgKVk9G1VBxrU0rQHBNWsmPOMtas5Ai5+9oAtGYNcM7kquCZemzdOEI48UZCeFsDUug02vikTq4sdDeh7+9N9tZdfJ7VVv3rrJnQwaMB8OfhR+bWYLjfINyM67DRAlqaDKqC/JAY4WYubTJ7h6G7Ys3KlrO4XHWNYMzJVMNyYhdWmLsG3pw5ZGcWeVUwbx0jVuGAhzQLzn5BQKAGIHeq4cOAjGSnNU2CtzHzXoovZ1xqVdbIB1Wd0d9/tfwbR+kaB2r0gskuJyTOgrxvy0dbRW6gvE79chFDf580VCZ4qd8XlBpd7ea67aUb9xveQMAVkQb48AwLfGIIIApXK41qnmHXaWm+aTdBvHIhmlXf+y4op5kK1JxwWx2cMl8zxCMot6uumIiIWz5UzVrUrM8VpXuCpZgixjubAv7i2Hy/bwR7RGF3wzaff+X/mPA7WFOYP0bfX8bj8L1/qvo=
