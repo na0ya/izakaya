@@ -9,8 +9,6 @@ deploy:
   app:
     master: izakaya-release
     development: izakaya-staging
-  run:
-    - "npm start"
 
 notifications:
   slack:
