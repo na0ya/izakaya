@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <h1>レストラン検索API実行サンプル</h1>
+      <a href="http://api.gnavi.co.jp/api/manual/restsearch/" target="_blank">APIリファレンス</a>
+    <p>Your API Key is <%= apikey %></p>
+    <input type="button" value="apply" class="js--apply" />
+    <p>
+     <span class="js--total"></span>
+     <div class="js--result"></div>
+    </p>
+    <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script>
+(function(){
+ 
+  var url = 'http://api.gnavi.co.jp/RestSearchAPI/20150630/?callback=?';
+  var params = {
+    keyid: '<%= apikey %>',
+    format: 'json',
+    latitude: 35.670083,
+    longitude: 139.763267,
+    range: 1
+  };
+ 
+  var showResult = function(result){
+    if ( result.total_hit_count > 0 ) {
+      var res = '';
+      $('.js--total').text( result.total_hit_count + '件の結果がみつかりました。' );
+
+      for ( var i in result.rest ){
+          res += result.rest[i].id + ' ' + result.rest[i].name + ' ' + result.rest[i].access.line + ' ' + result.rest[i].access.station + ' ' + result.rest[i].access.walk + '分\r\n';
+      }
+      $('.js--result').text( res );
+    } else {
+      $('.js--total').text( '' );
+      $('.js--result').text( '検索結果が見つかりませんでした。' );
+    }
+  }
+ 
+  $(document).on('click', '.js--apply', function(){
+    $.getJSON(url, params, function(result){
+      showResult(result);
+    });
+  });
+ 
+})(jQuery);
+
+    </script>
+  </body>
+</html>

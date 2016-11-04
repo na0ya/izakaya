@@ -4,4 +4,14 @@
 飲み会システムです
 
 # やりたいこと
-## キーワードで店の検索
+
+- キーワードで店の検索
+
+
+
+# Contribution Guide
+See [CONTRIBUTING.md](CONTRIBUTING.md)
+
+# License
+See [LICENSE](LICENSE)
+
