@@ -6,7 +6,7 @@
 # やりたいこと
 
 - キーワードで店の検索
-
+- Search with Geo-Location API. (Might be with JR beacon)
 
 
 # Contribution Guide
