@@ -26,7 +26,7 @@
     longitude: 139.763267,
     range: 1
   };
- 
+
   var showResult = function(result){
     if ( result.total_hit_count > 0 ) {
       var res = '';
@@ -42,12 +42,32 @@
     }
   }
  
-  $(document).on('click', '.js--apply', function(){
+
+  var geoLocation = function (position) {
+    console.log("緯度", position.coords.latitude);
+    console.log("経度", position.coords.longitude);
+    console.log("方角", position.coords.heading);
+    console.log("スピード", position.coords.speed);
+    params.latitude = position.coords.latitude;
+    params.longitude = position.coords.longitude;
     $.getJSON(url, params, function(result){
       showResult(result);
     });
+    return position;
+  }
+
+  function geoError(error) {
+    console.log("Error= ", error.code)
+  }
+
+  $(document).on('click', '.js--apply', function(){
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(geoLocation, geoError)
+    } else {
+      console.log("error. Can't use navigator API.");
+    }
   });
- 
+
 })(jQuery);
 
     </script>
