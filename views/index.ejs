@@ -1,75 +1,39 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-    <meta charset="utf-8" />
-  </head>
-  <body>
-    <h1>レストラン検索API実行サンプル</h1>
-      <a href="http://api.gnavi.co.jp/api/manual/restsearch/" target="_blank">APIリファレンス</a>
-    <p>Your API Key is <%= apikey %></p>
-    <input type="button" value="apply" class="js--apply" />
-    <p>
-     <span class="js--total"></span>
-     <div class="js--result"></div>
-    </p>
-    <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
-    <script>
-(function(){
- 
-  var url = 'http://api.gnavi.co.jp/RestSearchAPI/20150630/?callback=?';
-  var params = {
-    keyid: '<%= apikey %>',
-    format: 'json',
-    latitude: 35.670083,
-    longitude: 139.763267,
-    range: 1
-  };
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+    <meta charset="utf-8"/>
+</head>
+<body>
+<h1>レストラン検索API実行サンプル</h1>
+<a href="http://api.gnavi.co.jp/api/manual/restsearch/" target="_blank">APIリファレンス</a>
+<p>Your API Key is <%= apikey %></p>
+<input type="button" value="apply" class="js--apply"/>
+<p>
+    <span class="js--total"></span>
+<div class="js--result container">
+</div>
+</p>
 
-  var showResult = function(result){
-    if ( result.total_hit_count > 0 ) {
-      var res = '';
-      $('.js--total').text( result.total_hit_count + '件の結果がみつかりました。' );
+<script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+<script data-main="/js/client.js" src="/js/require.js"></script>
+<script>
+    (function () {
+        $(document).on('click', '.js--apply', function () {
+            onClickApply('<%= apikey %>');
+        });
+    })(jQuery);
+</script>
 
-      for ( var i in result.rest ){
-          res += result.rest[i].id + ' ' + result.rest[i].name + ' ' + result.rest[i].access.line + ' ' + result.rest[i].access.station + ' ' + result.rest[i].access.walk + '分\r\n';
-      }
-      $('.js--result').text( res );
-    } else {
-      $('.js--total').text( '' );
-      $('.js--result').text( '検索結果が見つかりませんでした。' );
-    }
-  }
- 
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-  var geoLocation = function (position) {
-    console.log("緯度", position.coords.latitude);
-    console.log("経度", position.coords.longitude);
-    console.log("方角", position.coords.heading);
-    console.log("スピード", position.coords.speed);
-    params.latitude = position.coords.latitude;
-    params.longitude = position.coords.longitude;
-    $.getJSON(url, params, function(result){
-      showResult(result);
-    });
-    return position;
-  }
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
-  function geoError(error) {
-    console.log("Error= ", error.code)
-  }
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-  $(document).on('click', '.js--apply', function(){
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(geoLocation, geoError)
-    } else {
-      console.log("error. Can't use navigator API.");
-    }
-  });
-
-})(jQuery);
-
-    </script>
-  </body>
+</body>
 </html>
