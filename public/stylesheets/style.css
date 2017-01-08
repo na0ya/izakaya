@@ -6,3 +6,12 @@ body {
 a {
   color: #00B7FF;
 }
+
+.mapResult {
+  flex: 1;
+  height: 500px;
+}
+
+.mapContainer {
+  display: flex;
+}

@@ -33,9 +33,8 @@ var geoLocation = function (position) {
     params.latitude = position.coords.latitude;
     params.longitude = position.coords.longitude;
     $.getJSON(url, params, function(result){
-        view.showResult(result);
+        view.showResult(params, result);
     });
-    return position;
 }
 
 var geoError = function(error) {
