@@ -2,6 +2,10 @@ language: node_js
 node_js:
   - node
 
+install:
+  - cd ./server
+  - npm install
+
 deploy:
   provider: heroku
   api_key:
